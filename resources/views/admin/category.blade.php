@@ -37,7 +37,7 @@
                                                <td>{{ $rs->parent_id}}</td>
                                                <td>{{ $rs->title}}</td>
                                                <td>{{ $rs->status}}</td>
-                                               <td>Edit</td>
+                                               <td><a href="{{route('admin_category_edit',['id'=> $rs->id])}}">Edit</a></td>
                                                <td><a href="{{route('admin_category_delete',['id'=> $rs->id])}}" onclick="return confirm('Delete! Are you sure?')">Delete</td>
                                            </tr>
                                        @endforeach
@@ -56,12 +56,14 @@
 
            </div>
 
-                <div class="card-body">
-                    @foreach ($datalist as $rs)
-                        <p>{{ $rs->title }}</p>
-                    @endforeach
+            <!--<div class="card-body">
+                @foreach ($datalist as $rs)
+                    <p>{{ $rs->title }}</p>
+                @endforeach
 
-                </div>
+            </div>-->
+
+
             <div class="card-footer">
                 <h5>Footer</h5>
             </div>
