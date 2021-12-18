@@ -19,8 +19,10 @@
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-0" aria-controls="submenu-0"  ><i class="fas fa-fw fa-chart-pie"></i>Product</a>
+                        <a href="{{route('admin_books')}}" class="nav-link data-toggle="collapse" aria-expanded="false" data-target="#submenu-0" aria-controls="submenu-0"><i class="fa fa-fw fa-user-circle"></i>Books <span class="badge badge-success">6</span></a>
+
                     </li>
+
 
                     <li class="nav-divider">
                         Features

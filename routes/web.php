@@ -32,15 +32,28 @@ Route::get('/test/{id}/{name}', [HomeController::class, 'test'])->whereNumber('i
 //Admin
 Route::middleware('auth')->prefix('admin')->group(function () {
 
-    Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin_home');
-
+    Route::get('/', [\App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin_home');
+    #Category
     Route::get('category', [App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('admin_category');
     Route::get('category/add', [App\Http\Controllers\Admin\CategoryController::class, 'add'])->name('admin_category_add');
-    Route::post('category/create',[\App\Http\Controllers\Admin\CategoryController::class,'create'])->name('admin_category_create');
+    Route::post('category/create',[App\Http\Controllers\Admin\CategoryController::class,'create'])->name('admin_category_create');
     Route::get('category/edit/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'edit'])->name('admin_category_edit');
     Route::post('category/update/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'update'])->name('admin_category_update');
     Route::get('category/delete/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'destroy'])->name('admin_category_delete');
     Route::get('category/show', [App\Http\Controllers\Admin\CategoryController::class, 'show'])->name('admin_category_show');
+
+    #Book
+    Route::prefix('book')->group(function() {
+
+    Route::get('/', [App\Http\Controllers\Admin\BookController::class, 'index'])->name('admin_books');
+    Route::get('create', [App\Http\Controllers\Admin\BookController::class, 'create'])->name('admin_book_add');
+    Route::post('store', [App\Http\Controllers\Admin\BookController::class, 'store'])->name('admin_book_store');
+    Route::get('edit/{id}', [App\Http\Controllers\Admin\BookController::class, 'edit'])->name('admin_book_edit');
+    Route::post('update/{id}', [App\Http\Controllers\Admin\BookController::class, 'update'])->name('admin_book_update');
+    Route::get('delete/{id}', [App\Http\Controllers\Admin\BookController::class, 'destroy'])->name('admin_book_delete');
+    Route::get('show', [App\Http\Controllers\Admin\BookController::class, 'show'])->name('admin_book_show');
+
+    });
 
 });
 
