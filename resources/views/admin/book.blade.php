@@ -30,6 +30,7 @@
                                            <th>Publishing</th>
                                            <th>Pages</th>
                                            <th>Image</th>
+                                           <th>Image Gallery</th>
                                            <th>Status</th>
                                            <th>Edit</th>
                                            <th>Delete</th>
@@ -46,10 +47,16 @@
                                                <td>{{ $rs->publisher}}</td>
                                                <td>{{ $rs->publishing}}</td>
                                                <td>{{ $rs->pages}}</td>
-                                               <td>{{ $rs->image}}</td>
+                                               <td>
+                                                  @if ($rs->image)
+                                                      <img src="{{Storage::url($rs->image)}}" height="30" alt="">
+                                                  @endif
+                                               </td>
+                                               <td><a href="{{route('admin_image_add',['book_id'=> $rs->id])}}" onclick="return !window.open(this.href,'','top=50 left=100 width=1100,height=700')"> <img src="{{asset('assets/admin/images')}}/gallery.jpg" height="25"></a></td>
+
                                                <td>{{ $rs->status}}</td>
-                                               <td><a href="{{route('admin_book_edit',['id'=> $rs->id])}}"> Edit </a></td>
-                                               <td><a href="{{route('admin_book_delete',['id'=> $rs->id])}}" onclick="return confirm('Delete! Are you sure?')">Delete </a></td>
+                                               <td><a href="{{route('admin_book_edit',['id'=> $rs->id])}}"> <img src="{{asset('assets/admin/images')}}/edit.jpg" height="25"> </a></td>
+                                               <td><a href="{{route('admin_book_delete',['id'=> $rs->id])}}" onclick="return confirm('Delete! Are you sure?')"> <img src="{{asset('assets/admin/images')}}/delete.png" height="25"> </a></td>
                                            </tr>
                                        @endforeach
                                        </tbody>
@@ -103,4 +110,5 @@
     <script src="https://cdn.datatables.net/rowgroup/1.0.4/js/dataTables.rowGroup.min.js"></script>
     <script src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
     <script src="https://cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js"></script>
+
 @endsection
