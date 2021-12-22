@@ -1,3 +1,8 @@
+@php
+    $setting= \App\Http\Controllers\HomeController::getsetting()
+@endphp
+
+
 <header id="header"><!--header-->
     <div class="header_top"><!--header_top-->
         <div class="container">
@@ -13,11 +18,10 @@
                 <div class="col-sm-6">
                     <div class="social-icons pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            @if ($setting->facebook !=null )<li><a href="{{$setting->facebook}}" target="_blank"><i class="fa fa-facebook"></i></a></li> @endif
+                            @if ($setting->instagram !=null )<li><a href="{{$setting->instagram}}" target="_blank"><i class="fa fa-instagram"></i></a></li> @endif
+                            @if ($setting->twitter !=null )<li><a href="{{$setting->twitter}}" target="_blank"><i class="fa fa-twitter"></i></a></li> @endif
+                            @if ($setting->youtube !=null )<li><a href="{{$setting->youtube}}" target="_blank"><i class="fa fa-youtube"></i></a></li> @endif
                         </ul>
                     </div>
                 </div>
@@ -30,7 +34,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="logo pull-left">
-                        <a href="index.html"><img src="{{asset('assets')}}/images/home/logo.png" alt="" /></a>
+                        <a class="logo pull-left" href="{{route('home')}}"><img src="{{asset('assets')}}/images/home/logo.png" alt="" /></a>
                     </div>
                     <div class="btn-group pull-right">
                         <div class="btn-group">
@@ -59,11 +63,19 @@
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
+                            @auth
+                            <li><a href="#"><i class="fa fa-user">{{Auth::user()->name}}</i> Account</a></li>
+                            @endauth
+                            @guest
+                            <li><a href="/login"> <i class="fa fa-lock" ></i>Login</a></li>
+                            <li><a href="/register"> <i class="fa fa-lock" ></i>Register</a></li>
+                            @endguest
+
+                            <li><a href="{{route('logout')}}"><i class="fa fa-star"></i> Logout</a></li>
                             <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
                             <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                             <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                            <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+
                         </ul>
                     </div>
                 </div>
