@@ -8,18 +8,18 @@
 
 @section('content')
  <form role="form" action="{{route('admin_setting_update')}}" method="post" enctype="multipart/form-data">
-    <section class="content">
+     <section class="content">
         @csrf
         <div class="dashboard-wrapper">
-          <div class="row">
-             <div class="container-fluid  dashboard-content">
-                <div class="card-body">
+           <div class="container-fluid  dashboard-content">
+              <div class="card-body">
+                <div class="row">
                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-5">
                        <div class="section-block">
-                     <h5 class="section-title">Edit Setting</h5>
-                     </div>
-                    <div class="simple-card">
-                        <ul class="nav nav-tabs" id="myTab5" role="tablist">
+                             <h5 class="section-title">Edit Setting</h5>
+                       </div>
+                     <div class="simple-card">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active border-left-0" id="general-tab-simple" data-toggle="tab" href="#general-simple" role="tab" aria-controls="general" aria-selected="true">General</a>
                             </li>
@@ -39,9 +39,9 @@
                                 <a class="nav-link" id="references-tab-simple" data-toggle="tab" href="#references-simple" role="tab" aria-controls="references" aria-selected="false">References</a>
                             </li>
                         </ul>
-                        <div class="tab-content" id="myTabContent5">
+                        <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="general-simple" role="tabpanel" aria-labelledby="general-tab-simple">
-                                <input type="hidden" id="id" name="id" value="{{$data->id}}" class="form-control">
+                                    <input type="hidden" id="id" name="id" value="{{$data->id}}" class="form-control">
                                     <div class="form-group">
                                         <label>Title</label>
                                         <input type="text" name="title" value="{{$data->title}}" class="form-control">
@@ -160,18 +160,16 @@
                                 </div>
                             </div>
 
-                        </div>
-                      </div>
-                      </div>
                        <div class="card-footer">
                            <button type="submit" class="btn btn-primary">Update Setting</button>
                       </div>
+                     </div>
                    </div>
-
                 </div>
              </div>
           </div>
         </div>
-    </section>
+     </section>
  </form>
 @endsection
+
