@@ -1,7 +1,3 @@
-@php
-    $setting= \App\Http\Controllers\HomeController::getsetting()
-@endphp
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,12 +41,37 @@
                     <li class="active">Contact</li>
                 </ol>
             </div><!--/breadcrums-->
-            <div class="col-md-8">
-                <h3 class="aside-title">İletişim Bilgileri</h3>
-                 {!! $setting->contact !!}
+            <div class="col-md-6">
+                <h2 class="title text-area ">İletişim Bilgileri</h2>
+                {!! $setting->contact !!}
             </div>
-            <div class="col-md-4">
-                <h3 class="aside-title">İletişim Formu</h3>
+            <div class="col-md-6">
+                <div class="contact-form">
+                    <h2 class="title text-area">İletişim Formu</h2>
+                    @include('home.message')
+                    <div class="status alert alert-success" style="display: none"></div>
+                    <form id="main-contact-form" class="contact-form row" action="{{route('sendmessage')}}" name="contact-form" method="post">
+                        @csrf
+                        <div class="form-group col-md-6">
+                            <input type="text" name="name" class="input"  required="required" placeholder="Name & Surname">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" name="phone" class="input" required="required" placeholder="Phone Number">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <input type="email" name="email" class="input" required="required" placeholder="Email">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <input type="text" name="subject" class="input" required="required" placeholder="Subject">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <textarea  class="input"  name="message" required="required"  rows="5" placeholder="Your Message Here"></textarea>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <input type="submit" name="submit" class="btn btn-primary pull-right" value="Submit">
+                        </div>
+                    </form>
+                </div>
             </div>
 
             @section('content')
