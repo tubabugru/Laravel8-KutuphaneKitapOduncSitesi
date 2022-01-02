@@ -35,6 +35,7 @@ Route::get('/fag', [HomeController::class, 'fag'])->name('fag');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::post('/sendmessage', [HomeController::class, 'sendmessage'])->name('sendmessage');
 Route::get('/book/{id}', [HomeController::class, 'book'])->name('book');
+Route::get('/categorybooks/{id}', [HomeController::class, 'categorybooks'])->name('categorybooks');
 
 
 //Route::get('/test/{id}/{name}', [HomeController::class, 'test'])->where(['id'=>'[0-9]+','name'=>'[A-Za-z]+']);

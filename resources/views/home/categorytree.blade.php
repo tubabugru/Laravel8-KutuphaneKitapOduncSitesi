@@ -1,6 +1,8 @@
-<ul>
+
     @foreach($children as $subcategory)
-        <li> {{$subcategory->title}} </li>
+
+        <li><a href="{{route('categorybooks',['id'=>$subcategory->id])}}">{{$subcategory->title}}</a> </li>
+
     @endforeach
-</ul>
+
 
