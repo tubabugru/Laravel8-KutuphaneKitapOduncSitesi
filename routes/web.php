@@ -37,6 +37,8 @@ Route::post('/sendmessage', [HomeController::class, 'sendmessage'])->name('sendm
 Route::get('/book/{id}', [HomeController::class, 'book'])->name('book');
 Route::get('/categorybooks/{id}', [HomeController::class, 'categorybooks'])->name('categorybooks');
 Route::get('/addtocart/{id}', [HomeController::class, 'addtocart'])->name('addtocart');
+Route::post('/getbook', [HomeController::class, 'getbook'])->name('getbook');
+Route::get('/booklist/{search}', [HomeController::class, 'booklist'])->name('booklist');
 
 
 //Route::get('/test/{id}/{name}', [HomeController::class, 'test'])->where(['id'=>'[0-9]+','name'=>'[A-Za-z]+']);

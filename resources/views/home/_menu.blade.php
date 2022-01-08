@@ -18,15 +18,15 @@
                         <li><a href="{{route('references')}}" class="active">REFERENCES</a></li>
                         <li><a href="{{route('contact')}}" class="active">CONTACT</a></li>
                         <li><a href="{{route('fag')}}" class="active">FAQ</a></li>
-
                     </ul>
                 </div>
             </div>
-            <div class="col-sm-3">
-                <div class="search_box pull-right">
-                    <input type="text" placeholder="Search"/>
-                </div>
-            </div>
+            <form action="{{route('getbook')}}" method="post">
+                @csrf
+                @livewire('search')
+            </form>
+            @livewireScripts
         </div>
     </div>
+</div>
 </div><!--/header-bottom-->
