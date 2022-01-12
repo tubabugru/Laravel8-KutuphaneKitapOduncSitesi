@@ -17,15 +17,20 @@
                         <li><a href="{{route('aboutus')}}" class="active">ABOUT US</a></li>
                         <li><a href="{{route('references')}}" class="active">REFERENCES</a></li>
                         <li><a href="{{route('contact')}}" class="active">CONTACT</a></li>
+                        <li><a href="{{route('myreviews')}}" class="active">MY REVIEW</a></li>
                         <li><a href="{{route('fag')}}" class="active">FAQ</a></li>
                     </ul>
                 </div>
             </div>
+            <div class="col-sm-3">
             <form action="{{route('getbook')}}" method="post">
                 @csrf
                 @livewire('search')
             </form>
-            @livewireScripts
+            @section('footerjs')
+               @livewireScripts
+            @endsection
+            </div>
         </div>
     </div>
 </div>
