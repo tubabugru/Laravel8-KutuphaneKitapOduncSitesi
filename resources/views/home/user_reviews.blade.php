@@ -45,7 +45,11 @@
                     <li class="active">My Review </li>
                 </ol>
             </div><!--/breadcrums-->
-            <div class="col-sm-12">
+            <div class="col-md-2">
+                @include('home.usermenu')
+            </div>
+            <div class="card col-md-10">
+                <div class="card">
                  <table id="example1" class="table table-bordered table-striped">
                      <thead>
                      <tr>
@@ -81,6 +85,7 @@
                      </tbody>
 
                  </table>
+                </div>
             </div>
 
             @section('content')

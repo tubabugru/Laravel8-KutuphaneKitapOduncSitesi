@@ -18,6 +18,7 @@
                         <li><a href="{{route('references')}}" class="active">REFERENCES</a></li>
                         <li><a href="{{route('contact')}}" class="active">CONTACT</a></li>
                         <li><a href="{{route('myreviews')}}" class="active">MY REVIEW</a></li>
+                        <li><a href="{{route('user_books')}}" class="active">MY BOOKS</a></li>
                         <li><a href="{{route('faq')}}" class="active">FAQ</a></li>
                     </ul>
                 </div>

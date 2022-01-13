@@ -71,10 +71,10 @@
                             <li><a href="/register"> <i class="fa fa-lock" ></i>Register</a></li>
                             @endguest
 
-                                <li><a href="{{route('myprofile')}}"><i class="fa fa-user"></i>My Account</a></li>
+                            <li><a href="{{route('myprofile')}}"><i class="fa fa-user"></i>My Account</a></li>
                             <li><a href="{{route('logout')}}"><i class="fa fa-star"></i> Logout</a></li>
-                            <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-                            <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+                            <li><a href="{{route('myreviews')}}"><i class="fa fa-star"></i> My Review</a></li>
+                            <li><a href="{{route('user_books')}}"><i class="fa fa-crosshairs"></i> My Book</a></li>
                             <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
 
                         </ul>

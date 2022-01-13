@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\MessageController;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -128,12 +129,33 @@ Route::middleware('auth')->prefix('myaccount')->namespace('myaccount')->group(fu
     Route::get('/destroymyreview/{id}', [ReviewController::class, 'destroymyreview'])->name('user_review_delete');
 
 });
+
 Route::middleware('auth')->prefix('user')->namespace('user')->group(function () {
 
     #Route::get('/profile', [UserController::class, 'index'])->name('userprofile');
 
-});
+    #Book
+    Route::prefix('book')->group(function() {
 
+        Route::get('/', [BookController::class, 'index'])->name('user_books');
+        Route::get('create', [BookController::class, 'create'])->name('user_book_add');
+        Route::post('store', [BookController::class, 'store'])->name('user_book_store');
+        Route::get('edit/{id}', [BookController::class, 'edit'])->name('user_book_edit');
+        Route::post('update/{id}', [BookController::class, 'update'])->name('user_book_update');
+        Route::get('delete/{id}', [BookController::class, 'destroy'])->name('user_book_delete');
+        Route::get('show', [BookController::class, 'show'])->name('user_book_show');
+
+    });
+
+    #Book Image Gallery
+    Route::prefix('image')->group(function() {
+        Route::get('create/{book_id}', [App\Http\Controllers\Admin\ImageController::class, 'create'])->name('user_image_add');
+        Route::post('store/{book_id}', [App\Http\Controllers\Admin\ImageController::class, 'store'])->name('user_image_store');
+        Route::get('delete/{id}/{book_id}', [App\Http\Controllers\Admin\ImageController::class, 'destroy'])->name('user_image_delete');
+        Route::get('show', [App\Http\Controllers\Admin\ImageController::class, 'show'])->name('admin_image_show');
+    });
+
+});
 
 
 
