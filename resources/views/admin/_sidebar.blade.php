@@ -31,6 +31,11 @@
 
                     </li>
 
+                    <li class="nav-item">
+                        <a href="{{route('admin_faq')}}" class="nav-link data-toggle="collapse" aria-expanded="false" data-target="#submenu-0" aria-controls="submenu-0"><i class="fa fa-fw fa-user-circle"></i>FAQ <span class="badge badge-success">6</span></a>
+
+                    </li>
+
 
                     <li class="nav-item">
                         <a href="{{route('admin_setting')}}" class="nav-link data-toggle="collapse" aria-expanded="false" data-target="#submenu-0" aria-controls="submenu-0"><i class="fa fa-fw fa-user-circle"></i>Settings <span class="badge badge-success">6</span></a>
