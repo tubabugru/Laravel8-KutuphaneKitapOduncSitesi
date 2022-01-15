@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Review</title>
+    <title>Oder Books</title>
     <meta name="description" content=" @yield('description') ">
     <meta name="keywords" content=" @yield('keywords') ">
     <meta name="author" content="">
@@ -44,7 +44,7 @@
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
                     <li><a href="{{route('home')}}">Home</a></li>
-                    <li class="active">My Review </li>
+                    <li class="active">Order </li>
                 </ol>
             </div><!--/breadcrums-->
             <div class="col-md-2">

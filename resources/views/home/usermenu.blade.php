@@ -3,7 +3,7 @@
     <div class="brands-name">
         <ul class="nav nav-pills nav-stacked">
             <li><a href="{{route('myprofile')}}">My Profile</a></li>
-            <li><a href="#"> Rezervation</a></li>
+            <li><a href="{{route('user_orders')}}">My Rezervation</a></li>
             <li><a href="{{route('myreviews')}}"> My Reviews</a></li>
             <li><a href="{{route('user_books')}}"> My Book</a></li>
             <li><a href="{{route('user_shopcart')}}"> My Box</a></li>

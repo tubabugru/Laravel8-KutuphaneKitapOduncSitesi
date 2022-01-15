@@ -44,7 +44,7 @@
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
                     <li><a href="{{route('home')}}">Home</a></li>
-                    <li class="active">User Book </li>
+                    <li class="active">User Book</li>
                 </ol>
             </div><!--/breadcrums-->
             <div class="col-md-2">
@@ -81,8 +81,11 @@
                                     <td>{{ $rs->book->publisher}}</td>
                                     <td>{{ $rs->book->publishing}}</td>
 
-                                    <td><a href="{{route('user_shopcart_update',['id'=> $rs->id])}}"> <img src="{{asset('assets/admin/images')}}/edit.jpg" height="25"> </a></td>
-                                    <td><a href="{{route('user_shopcart_delete',['id'=> $rs->id])}}" onclick="return confirm('Delete! Are you sure?')"> <img src="{{asset('assets/admin/images')}}/delete.png" height="25"> </a></td>
+                                    <td><a href="{{route('user_shopcart_update',['id'=> $rs->id])}}"> <img
+                                                src="{{asset('assets/admin/images')}}/edit.jpg" height="25"> </a></td>
+                                    <td><a href="{{route('user_shopcart_delete',['id'=> $rs->id])}}"
+                                           onclick="return confirm('Delete! Are you sure?')"> <img
+                                                src="{{asset('assets/admin/images')}}/delete.png" height="25"> </a></td>
                                 </tr>
 
                             @endforeach
@@ -90,14 +93,24 @@
 
                         </table>
                     </div>
-                    <div class="pull-right">
-                        <button type="submit" class="btn btn-fefault cart">
-                            Rezervasyon Yap
-                        </button>
-                    </div>
+                    <form role="form" action="{{route('user_order_store')}}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group">
+                            <label>Bitiş tarihi</label>
+                            <input type="date" name="returndate" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Not </label>
+                            <textarea name="note" class="form-control"></textarea>
+                        </div>
+                        <div class="pull-right">
+                            <button type="submit" class="btn btn-fefault cart">
+                                Rezervasyon Yap
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
-
 
 
         <!--<div class="card-body">
