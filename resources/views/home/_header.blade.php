@@ -37,27 +37,7 @@
                         <a class="logo pull-left" href="{{route('home')}}"><img src="{{asset('assets')}}/images/home/logo.png" alt="" /></a>
                     </div>
                     <div class="btn-group pull-right">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                USA
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Canada</a></li>
-                                <li><a href="#">UK</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                DOLLAR
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Canadian Dollar</a></li>
-                                <li><a href="#">Pound</a></li>
-                            </ul>
-                        </div>
+                        @include('home.message')
                     </div>
                 </div>
                 <div class="col-sm-8">
@@ -75,7 +55,7 @@
                             <li><a href="{{route('logout')}}"><i class="fa fa-star"></i> Logout</a></li>
                             <li><a href="{{route('myreviews')}}"><i class="fa fa-star"></i> My Review</a></li>
                             <li><a href="{{route('user_books')}}"><i class="fa fa-crosshairs"></i> My Book</a></li>
-                            <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                            <li><a href="{{route('user_shopcart')}}"><i class="fa fa-shopping-cart"></i>My Box</a></li>
 
                         </ul>
                     </div>

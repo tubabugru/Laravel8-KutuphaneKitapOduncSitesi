@@ -91,7 +91,10 @@
 
                     </div>
                     <div class="col-sm-7">
-                        <div class="product-information"><!--/product-information-->
+                        <div class="product-information">
+                            <form action="{{route('user_shopcart_add',['id' => $data->id])}}" method="post">
+                                @csrf
+                            <!--/product-information-->
                             <img src="" class="newarrival" alt="" />
                             <p>{{$data->title}}</p>
                             <p>{{$data->author}}</p>
@@ -100,14 +103,15 @@
                                 $countreview=\App\Http\Controllers\HomeController::countreview($data->id);
                             @endphp
                             <span>
-                                <input type="text" value="3" />
-									<a href="{{route('addtocart',['id'=>$rs->id])}}" class="btn btn-fefault cart">
+                                <input type="submit" value="1" max="1" />
+                                <button type="submit" class="btn btn-fefault cart">
 										<i class="fa fa-shopping-cart"></i>
 										Rezervasyon Yap
-									</a>
+									</button>
+								</span>
 							</span>
+                            </form>
 
-                            <a href=""><img src="" class="share img-responsive"  alt="" /></a>
                         </div>
                         <!--/product-information-->
                     </div>

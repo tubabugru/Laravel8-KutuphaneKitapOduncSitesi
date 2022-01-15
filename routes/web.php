@@ -5,6 +5,9 @@ use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ImageController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ShopcartController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,7 +41,6 @@ Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::post('/sendmessage', [HomeController::class, 'sendmessage'])->name('sendmessage');
 Route::get('/book/{id}', [HomeController::class, 'book'])->name('book');
 Route::get('/categorybooks/{id}', [HomeController::class, 'categorybooks'])->name('categorybooks');
-Route::get('/addtocart/{id}', [HomeController::class, 'addtocart'])->name('addtocart');
 Route::post('/getbook', [HomeController::class, 'getbook'])->name('getbook');
 Route::get('/booklist/{search}', [HomeController::class, 'booklist'])->name('booklist');
 
@@ -84,8 +86,6 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     });
 
 
-
-
     #Book Image Gallery
     Route::prefix('image')->group(function() {
         Route::get('create/{book_id}', [App\Http\Controllers\Admin\ImageController::class, 'create'])->name('admin_image_add');
@@ -93,6 +93,10 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::get('delete/{id}/{book_id}', [App\Http\Controllers\Admin\ImageController::class, 'destroy'])->name('admin_image_delete');
         Route::get('show', [App\Http\Controllers\Admin\ImageController::class, 'show'])->name('admin_image_show');
     });
+
+
+
+
     #Review
     Route::prefix('review')->group(function() {
 
@@ -149,10 +153,33 @@ Route::middleware('auth')->prefix('user')->namespace('user')->group(function () 
 
     #Book Image Gallery
     Route::prefix('image')->group(function() {
-        Route::get('create/{book_id}', [App\Http\Controllers\Admin\ImageController::class, 'create'])->name('user_image_add');
-        Route::post('store/{book_id}', [App\Http\Controllers\Admin\ImageController::class, 'store'])->name('user_image_store');
-        Route::get('delete/{id}/{book_id}', [App\Http\Controllers\Admin\ImageController::class, 'destroy'])->name('user_image_delete');
-        Route::get('show', [App\Http\Controllers\Admin\ImageController::class, 'show'])->name('admin_image_show');
+        Route::get('create/{book_id}', [ImageController::class, 'create'])->name('user_image_add');
+        Route::post('store/{book_id}', [ImageController::class, 'store'])->name('user_image_store');
+        Route::get('delete/{id}/{book_id}', [ImageController::class, 'destroy'])->name('user_image_delete');
+        Route::get('show', [ImageController::class, 'show'])->name('admin_image_show');
+    });
+
+    #Shopcart
+    Route::prefix('shopcart')->group(function() {
+
+        Route::get('/', [ShopcartController::class, 'index'])->name('user_shopcart');
+        Route::post('store/{id}', [ShopcartController::class, 'store'])->name('user_shopcart_add');
+        Route::post('update/{id}', [ShopcartController::class, 'update'])->name('user_shopcart_update');
+        Route::get('delete/{id}', [ShopcartController::class, 'destroy'])->name('user_shopcart_delete');
+
+    });
+
+    #Order
+    Route::prefix('order')->group(function() {
+
+        Route::get('/', [OrderController::class, 'index'])->name('user_orders');
+        Route::get('create', [OrderController::class, 'create'])->name('user_order_add');
+        Route::post('store', [OrderController::class, 'store'])->name('user_order_store');
+        Route::get('edit/{id}', [OrderController::class, 'edit'])->name('user_order_edit');
+        Route::post('update/{id}', [OrderController::class, 'update'])->name('user_order_update');
+        Route::get('delete/{id}', [OrderController::class, 'destroy'])->name('user_order_delete');
+        Route::get('show', [OrderController::class, 'show'])->name('user_order_show');
+
     });
 
 });

@@ -1,21 +1,13 @@
 @php
     $setting= \App\Http\Controllers\HomeController::getsetting()
 @endphp
-<!-- include summernote css/js -->
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Book</title>
+    <title>My Review</title>
     <meta name="description" content=" @yield('description') ">
     <meta name="keywords" content=" @yield('keywords') ">
     <meta name="author" content="">
@@ -35,6 +27,8 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+
+
     @yield('css')
     @yield('headerjs')
 </head><!--/head-->
@@ -50,26 +44,18 @@
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
                     <li><a href="{{route('home')}}">Home</a></li>
-                    <li class="active">Add Book </li>
+                    <li class="active">My Review </li>
                 </ol>
             </div><!--/breadcrums-->
             <div class="col-md-2">
                 @include('home.usermenu')
             </div>
             <div class="card col-md-10">
-                <div class="card">
+                <div class="shopper-info">
                     <form role="form" action="{{route('user_book_store')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
                             <form>
-                                <div class="form-group">
-                                    <label>Category</label>
-                                    <select class="form-control select2" name="category_id" style="width: 100%;">
-                                        @foreach (  $datalist as $rs  )
-                                            <option value="{{ $rs->id}}">{{ App\Http\Controllers\Admin\CategoryController::getParentsTree($rs, $rs->title) }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
 
                                 <div class="form-group">
                                     <label>Title</label>
@@ -99,42 +85,19 @@
                                     <label>Pages</label>
                                     <input type="number" name="pages" value="10" class="form-control">
                                 </div>
+                                <a class="btn btn-primary" href="">Rezervayon Yap</a>
+                                <br><br>
 
-                                <div class="form-group">
-                                    <label>Detail</label>
-                                    <textarea id="summernote" name="detail"></textarea>
-                                    <script>
-                                        $('#summernote').summernote({
-                                            placeholder: 'Hello Bootstrap 4',
-                                            tabsize: 2,
-                                            height: 100
-                                        });
-                                    </script>
-                                </div>
-                                <div class="form-group">
-                                    <label>Image</label>
-                                    <input type="file" name="image" class="form-control">
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Status</label>
-                                    <select class="form-control select2" name="status" style="width: 100%;">
-                                        <option selected="selected">False</option>
-                                        <option>True</option>
-                                    </select>
-
-                                </div>
                             </form>
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Add Book</button>
-                            </div>
                         </div>
-                    </div>
-
-                @section('content')
-                @show
+                </div>
+                </div>
             </div>
+
+            @section('content')
+            @show
         </div>
+    </div>
 </section>
 
 @include('home._footer')

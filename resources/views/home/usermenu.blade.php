@@ -6,7 +6,7 @@
             <li><a href="#"> Rezervation</a></li>
             <li><a href="{{route('myreviews')}}"> My Reviews</a></li>
             <li><a href="{{route('user_books')}}"> My Book</a></li>
-            <li><a href="#"> My Messages</a></li>
+            <li><a href="{{route('user_shopcart')}}"> My Box</a></li>
             <li><a href="{{route('logout')}}"> Logout</a></li>
 
         </ul>
