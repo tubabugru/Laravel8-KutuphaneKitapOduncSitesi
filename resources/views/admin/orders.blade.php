@@ -30,7 +30,7 @@
                             <tr>
                                 <td>{{$rs->id}}</td>
                                 <td>
-                                    <a href="{{route('admin_user_show',['id'=> $rs->user->id])}}" onclick="return !window.open(this.href,'','top=50 left=100 width=1100,height=700')">
+                                    <a href="{{route('admin_user_show',['id'=> $rs->user->id])}}" >
                                         {{ $rs->user->name}}
                                     </a>
                                 </td>
@@ -44,7 +44,7 @@
                                 <td>{{$rs->days}}</td>
                                 <td>{{$rs->note}}</td>
                                 <td>
-                                    <a href="{{route('admin_order_show',['id'=> $rs->id])}}" onclick="return !window.open(this.href,'','top=50 left=100 width=1100,height=700')">
+                                    <a href="{{route('admin_order_edit',['id'=> $rs->id])}}">
                                         <img src="{{asset('assets/admin/images')}}/edit.jpg" height="25"></a>
                                 </td>
                             </tr>

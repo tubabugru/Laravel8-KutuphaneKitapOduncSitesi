@@ -130,6 +130,10 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::prefix('order')->group(function () {
 
             Route::get('/', [AdminOderController::class, 'index'])->name('admin_orders');
+            Route::get('/new', [AdminOderController::class, 'indexnew'])->name('admin_new_orders');
+            Route::get('/accept', [AdminOderController::class, 'indexaccept'])->name('admin_accept_orders');
+            Route::get('/cancel', [AdminOderController::class, 'indexcancel'])->name('admin_cancel_orders');
+            Route::get('/complete', [AdminOderController::class, 'indexcomplete'])->name('admin_complete_orders');
             Route::post('create', [AdminOderController::class, 'create'])->name('admin_order_add');
             Route::post('store', [AdminOderController::class, 'store'])->name('admin_order_store');
             Route::get('edit/{id}', [AdminOderController::class, 'edit'])->name('admin_order_edit');

@@ -79,7 +79,7 @@
                              <td>{{$rs->days}}</td>
                              <td>{{$rs->note}}</td>
                              <td>
-                                 <a href="{{route('user_order_edit',['id'=>$rs->id])}}" onclick="return confirm('Return! Are you sure?')">Return Book</a>
+                                 <a href="{{route('user_order_edit',['id'=>$rs->id])}}">Edit</a>
                              </td>
                          </tr>
                      @endforeach

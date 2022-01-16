@@ -99,10 +99,6 @@
                             <label>Bitiş tarihi</label>
                             <input type="date" name="returndate" class="form-control">
                         </div>
-                        <div class="form-group">
-                            <label>Not </label>
-                            <textarea name="note" class="form-control"></textarea>
-                        </div>
                         <div class="pull-right">
                             <button type="submit" class="btn btn-fefault cart">
                                 Rezervasyon Yap

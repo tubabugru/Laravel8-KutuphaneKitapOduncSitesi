@@ -44,13 +44,16 @@
                                     <a class="nav-link" href="{{route('admin_orders')}}">All Rezervations</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/form-validation.html">New Rezervations</a>
+                                    <a class="nav-link" href="{{route('admin_new_orders')}}">New Rezervations</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/form-validation.html">Accepted Rezervations</a>
+                                    <a class="nav-link" href="{{route('admin_accept_orders')}}">Accepted Rezervations</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/multiselect.html">Completed Rezervations</a>
+                                    <a class="nav-link" href="{{route('admin_cancel_orders')}}">Canceled Rezervations</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('admin_complete_orders')}}">Completed Rezervations</a>
                                 </li>
                             </ul>
                         </div>
