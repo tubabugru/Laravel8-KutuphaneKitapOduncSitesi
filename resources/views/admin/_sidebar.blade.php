@@ -36,6 +36,26 @@
 
                     </li>
 
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fab fa-fw fa-wpforms"></i>Rezervations</a>
+                        <div id="submenu-3" class="collapse submenu" style="">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('admin_orders')}}">All Rezervations</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="pages/form-validation.html">New Rezervations</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="pages/form-validation.html">Accepted Rezervations</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="pages/multiselect.html">Completed Rezervations</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
 
                     <li class="nav-item">
                         <a href="{{route('admin_setting')}}" class="nav-link data-toggle="collapse" aria-expanded="false" data-target="#submenu-0" aria-controls="submenu-0"><i class="fa fa-fw fa-user-circle"></i>Settings <span class="badge badge-success">6</span></a>

@@ -44,7 +44,7 @@
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
                     <li><a href="{{route('home')}}">Home</a></li>
-                    <li class="active">User Book</li>
+                    <li class="active">My Box</li>
                 </ol>
             </div><!--/breadcrums-->
             <div class="col-md-2">

@@ -44,7 +44,7 @@
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
                             @auth
-                            <li><a href="#"><i class="fa fa-user"></i> {{Auth::user()->name}}</a></li>
+                            <li><a href="{{route('myprofile')}}"><i class="fa fa-user"></i> {{Auth::user()->name}} {{Auth::user()->roles->pluck('name')}}</a></li>
                             @endauth
                             @guest
                             <li><a href="/login"> <i class="fa fa-lock" ></i>Login</a></li>

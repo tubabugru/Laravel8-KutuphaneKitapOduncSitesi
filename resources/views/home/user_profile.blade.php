@@ -1,3 +1,4 @@
+@section('title','User Profile')
 <!DOCTYPE html>
 <html lang="en">
 <head>
