@@ -23,12 +23,13 @@
                                     @csrf
 
                                     <table class="table table-striped table-bordered first">
-
                                         <tr>
                                             <th>Id</th><td>{{ $data->id}}</td>
+                                        <tr>
                                         </tr>
-                                        <th>Name</th><td>{{ $data->user->name}}</td>
-                                        </tr>
+                                        <th>Name</th>
+                                            <td>{{ $data->user->name}}</td>
+                                        <tr>
                                         </tr>
                                         <th>Book</th><td>{{ $data->book->title}}</td>
                                         <tr>

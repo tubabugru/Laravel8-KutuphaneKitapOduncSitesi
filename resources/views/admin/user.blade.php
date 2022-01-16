@@ -1,12 +1,14 @@
 @extends('Layouts.admin')
-@section('title', 'Review List')
+@section('title', 'User List')
 @section('content')
     <section class="content">
         <div class="dashboard-wrapper">
             <div class="card">
                 <div class="card">
+                    <br><br>
                     <div class="card-header">
-                        @include('home.message')
+                        <h5>User List</h5>
+
                     </div>
                     <!-- ============================================================== -->
                     <div class="row">
@@ -16,18 +18,15 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="card">
                                 <div class="card-body">
-
                                     <div class="table-responsive">
                                         <table class="table table-striped table-bordered first">
                                             <thead>
                                             <tr>
                                                 <th>Id</th>
+                                                <th>Image</th>
                                                 <th>Name</th>
-                                                <th>Book</th>
-                                                <th>Subject</th>
-                                                <th>Review</th>
-                                                <th>Status</th>
-                                                <th>Date</th>
+                                                <th>Email</th>
+                                                <th>Roles</th>
                                                 <th>Edit</th>
                                                 <th>Delete</th>
                                             </tr>
@@ -38,21 +37,21 @@
                                                 <tr>
                                                     <td>{{ $rs->id}}</td>
                                                     <td>
-                                                        <a href="{{route('admin_user_show',['id'=> $rs->user->id])}}" onclick="return !window.open(this.href,'','top=50 left=100 width=1100,height=700')">
-                                                        {{ $rs->user->name}}
+                                                        @if($rs->profile_photo_path)
+                                                            <img src="{{Storage::url($rs->profile_photo_path)}}" height="50" style="border-radius: 10px" alt="">
+                                                        @endif
+                                                    </td>
+                                                    <td>{{ $rs->name}}</td>
+                                                    <td>{{ $rs->email}}</td>
+                                                    <td>@foreach($rs->roles as $row)
+                                                            {{$row->name}},
+                                                        @endforeach
+                                                        <a href="{{route('admin_user_roles',['id'=>$rs->id])}}" onclick="return !window.open(this.href,'','top=50 left=100 width=1100,height=700')">
+                                                            <i class="nav icon fas fa-plus-circle"></i>
                                                         </a>
                                                     </td>
-                                                    <td><a href="{{route('book',['id'=>$rs->book->id])}}" target="_blank">{{$rs->book->title}}</a>
-                                                    </td>
-
-                                                    <td>{{ $rs->subject}}</td>
-                                                    <td>{{ $rs->review}}</td>
-                                                    <td>{{ $rs->status}}</td>
-                                                    <td>{{ $rs->created_at}}</td>
-
-                                                    <td><a href="{{route('admin_review_show',['id'=> $rs->id])}}" onclick="return !window.open(this.href,'','top=50 left=100 width=1100,height=700')"> <img src="{{asset('assets/admin/images')}}/edit.jpg" height="25"></a></td>
-
-                                                    <td><a href="{{route('admin_review_delete',['id'=> $rs->id])}}" onclick="return confirm('Delete! Are you sure?')"> <img src="{{asset('assets/admin/images')}}/delete.png" height="25"> </a></td>
+                                                    <td><a href="{{route('admin_user_edit',['id'=> $rs->id])}}"> <img src="{{asset('assets/admin/images')}}/edit.jpg" height="25"> </a></td>
+                                                    <td><a href="{{route('admin_user_delete',['id'=> $rs->id])}}" onclick="return confirm('Delete! Are you sure?')"> <img src="{{asset('assets/admin/images')}}/delete.png" height="25"> </a></td>
                                                 </tr>
                                             @endforeach
                                             </tbody>
@@ -63,12 +62,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- ============================================================== -->
-                    <!-- end basic table  -->
-                    <!-- ============================================================== -->
-                </div>
 
-            </div>
 
         <!--<div class="card-body">
                 @foreach ($datalist as $rs)
