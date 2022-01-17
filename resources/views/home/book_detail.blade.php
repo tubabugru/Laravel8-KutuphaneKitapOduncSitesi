@@ -58,27 +58,24 @@
                     <div class="col-sm-5">
                         <div class="view-product">
                             <img src="{{ \Illuminate\Support\Facades\Storage::url($data->image) }}" style="height: 300px" alt="" />
-                            <h3>ZOOM</h3>
-
                         </div>
+
                         <div id="similar-product" class="carousel slide" data-ride="carousel">
-                        @foreach($datalist as $rs)
                             <!-- Wrapper for slides -->
+                            @foreach($datalist as $rs)
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    <a href=""><img src="{{ \Illuminate\Support\Facades\Storage::url($rs->image) }}"  width="85"  height="84" alt=""></a>
+                                    <a href=""><img src="{{ \Illuminate\Support\Facades\Storage::url($rs->image) }}" width="30"  height="30"  alt=""></a>
                                 </div>
-
-                                <div class="item">
-                                    <a href=""><img src="{{ \Illuminate\Support\Facades\Storage::url($rs->image) }}" width="85"  height="84" alt=""></a>
-                                </div>
-
-                                <div class="item">
-                                    <a href=""><img src="{{ \Illuminate\Support\Facades\Storage::url($rs->image) }}" width="85"  height="84" alt=""></a>
-                                </div>
+                                    <div class="item">
+                                        <a href=""><img src="{{ \Illuminate\Support\Facades\Storage::url($rs->image) }}" width="30"  height="30"  alt=""></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href=""><img src="{{ \Illuminate\Support\Facades\Storage::url($rs->image) }}" width="30"  height="30"  alt=""></a>
+                                    </div>
 
                             </div>
-                        @endforeach
+                            @endforeach
 
                             <!-- Controls -->
                             <a class="left item-control" href="#similar-product" data-slide="prev">
@@ -87,7 +84,9 @@
                             <a class="right item-control" href="#similar-product" data-slide="next">
                                 <i class="fa fa-angle-right"></i>
                             </a>
+
                         </div>
+
 
                     </div>
                     <div class="col-sm-7">

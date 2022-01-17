@@ -1,3 +1,4 @@
+@section('title', 'My Rezervations')
 @php
     $setting= \App\Http\Controllers\HomeController::getsetting()
 @endphp

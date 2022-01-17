@@ -58,33 +58,24 @@
                             <form>
 
                                 <div class="form-group">
-                                    <label>Title</label>
-                                    {{$data->title}}
+                                    <label>User Id</label>
+                                    <input type="text" name="title" value="{{$data->user_id}}" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Book Id</label>
+                                    <input type="text" name="title" value="{{$data->book_id}}" class="form-control">
                                 </div>
                                 <!-- Buraları doldur data bilgileri ile  order -->
                                 <div class="form-group">
-                                    <label>Keywords</label>
+                                    <label>Book Date</label>
+                                    <input type="text" name="title" value="{{$data->bookdate}}" class="form-control">
                                 </div>
+
                                 <div class="form-group">
-                                    <label>Description</label>
-                                    <input type="text" name="description" class="form-control">
+                                    <label>Days</label>
+                                    <input type="text" name="title" value="{{$data->days}}" class="form-control">
                                 </div>
-                                <div class="form-group">
-                                    <label>Author</label>
-                                    <input type="text" name="author" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label>Publisher</label>
-                                    <input type="text" name="publisher" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label>Publishing</label>
-                                    <input type="number" name="publishing" value="4" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label>Note</label>
-                                    {{$data->note}}
-                                </div>
+
                                 <div class="form-group">
                                     <label>Status</label>
                                     <select name="status">

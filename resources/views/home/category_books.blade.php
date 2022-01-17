@@ -51,10 +51,9 @@
                 @include('home._category')
             </div>
 
-            <div class="col-sm-9 padding-right">
                 <div class="col-sm-9 padding-right">
                     <div class="features_items"><!--features_items-->
-                        <h2 class="title text-center">Features Items</h2>
+                        <h2 class="title text-center">Features Books</h2>
                         @foreach($datalist as $rs)
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
@@ -69,7 +68,10 @@
                                         <div class="overlay-content">
 
                                             <p>{{$rs->title}}</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Rezervasyon Yap</a>
+                                            <form action="{{route('user_shopcart_add',['id' => $rs->id])}}" method="post">
+                                                @csrf
+                                                <button type="submit" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Rezervasyon Yap</button>
+                                            </form>
                                         </div>
                                     </div>
 
@@ -83,18 +85,14 @@
                         </div>
                         @endforeach
 
-                        <ul class="pagination">
-                            <li class="active"><a href="">1</a></li>
-                            <li><a href="">2</a></li>
-                            <li><a href="">3</a></li>
-                            <li><a href="">&raquo;</a></li>
-                        </ul>
                     </div><!--features_items-->
+                    <ul class="pagination">
+                        <li class="active"><a href="">1</a></li>
+                        <li><a href="">2</a></li>
+                        <li><a href="">3</a></li>
+                        <li><a href="">&raquo;</a></li>
+                    </ul>
                 </div>
-
-            </div>
-
-
 
             @section('content')
             @show
