@@ -1,3 +1,7 @@
+@section('title'," Order Books")
+@section('description')
+@section('keywords')
+
 @php
     $setting= \App\Http\Controllers\HomeController::getsetting()
 @endphp
@@ -7,7 +11,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oder Books</title>
+    <title>@yield('title')</title>
     <meta name="description" content=" @yield('description') ">
     <meta name="keywords" content=" @yield('keywords') ">
     <meta name="author" content="">
